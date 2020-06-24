@@ -26,3 +26,5 @@ class ApplicationController < Sinatra::Base
             authenticate
             redirect '/lists' if list.user != current_user
         end
+    end
+end
