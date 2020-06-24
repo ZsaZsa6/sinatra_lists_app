@@ -13,6 +13,7 @@
 ActiveRecord::Schema.define(version: 2) do
 
   create_table "lists", force: :cascade do |t|
+    t.string "title"
     t.string "content"
     t.string "category"
     t.integer "user_id"
