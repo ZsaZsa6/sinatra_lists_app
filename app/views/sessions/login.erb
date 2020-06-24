@@ -1,0 +1,13 @@
+<% if @err %>
+    <p><%= @err %></p>
+<% end %>
+
+<form action="/login" method="post">
+
+    <input type="text" id="email" placeholder="email" name="email"><br/>
+    <input type="text" id="username" placeholder="username" name="username"><br/>
+    <input type="password" id="pass" placeholder="password" name="password"><br/>
+    <input type="submit" value="Log In">
+</form>
+
+<a href="/signup">Sign Up</a>
