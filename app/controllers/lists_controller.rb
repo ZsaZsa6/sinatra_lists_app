@@ -20,7 +20,7 @@ class TodosController < ApplicationController
 
     post '/lists' do
         authenticate
-        List.create(content: params[:content], user: current_user)
+        List.create(category: params[:category], title: params[:title], content: params[:content], user: current_user)
         redirect '/lists'
     end
 
@@ -34,7 +34,7 @@ class TodosController < ApplicationController
     patch '/lists/:id' do
         @list = List.find(params[:id])
         authorize(@list)
-        @list.update(content: params[:content])
+        @list.update(category: params[:category], title: params[:title], content: params[:content])
         redirect '/lists'
     end
 
