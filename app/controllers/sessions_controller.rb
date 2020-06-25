@@ -9,11 +9,12 @@ class SessionsController < ApplicationController
     end
 
     post '/login' do
-        u = User.find_by(username: params[:username])
+        user = User.find_by(username: params[:username])
 
-        if u && u.authenticate(params[:password])
-            session[:user_id] = u.id
+        if user && user.authenticate(params[:password])
+            session[:user_id] = user.id
             redirect '/lists'
+
         else
             @err = "Invalid Credentials"
             erb :'sessions/login'

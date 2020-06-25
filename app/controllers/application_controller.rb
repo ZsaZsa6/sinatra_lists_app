@@ -1,7 +1,9 @@
 class ApplicationController < Sinatra::Base
 
-    set :views, ->{ File.join(root, "../views") }
     enable :sessions
+    configure do
+    set :views, 'app/views'
+    end
 
     get '/' do
         erb :home
