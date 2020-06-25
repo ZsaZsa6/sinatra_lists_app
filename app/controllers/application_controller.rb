@@ -1,6 +1,7 @@
 class ApplicationController < Sinatra::Base
 
     enable :sessions
+    set :session_secret, 'dsjljdlkjsdkljsd'
     configure do
     set :views, 'app/views'
     end
@@ -13,8 +14,7 @@ class ApplicationController < Sinatra::Base
     self.helpers do
 
         def current_user
-          binding.pry
-            User.find_by(id: session[:user_id])
+          User.find_by(id: session[:user_id])
         end
 
         def logged_in?

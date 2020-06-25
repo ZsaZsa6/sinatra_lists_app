@@ -1,14 +1,16 @@
 <a href="/lists/new">Create List</a>
-<!-- binding.pry -->
-
 
 <ul>
     <% @lists.each do |list| %>
-        <li><a href="/lists/<%= list.id %>"><%= list.content %></a> -- <a href="/lists/<%= list.id %>/edit">Edit</a>
-
-        <form action="/lists/<%= list.id %>" method="post">
+        <li>List Category: <a href="/lists/<%= list.id %>"><%= list.category %></a><br/>
+          List Title: <a href="/lists/<%= list.id %>"><%= list.title %></a><br/>
+        </li>
+            <li>List Content: <a href="/lists/<%= list.id %>"><%= list.content %></a><br/>
+            </li>
+            <a href="/lists/<%= list.id %>/edit">Edit List</a><br/>
+            <form action="/lists/<%= list.id %>" method="post">
             <input type="hidden" name="_method" value="delete">
             <input type="submit" value="Delete">
         </form>
-        </li>
+
     <% end %>
