@@ -11,6 +11,7 @@ class SessionsController < ApplicationController
     post '/login' do
         user = User.find_by(username: params[:username])
 
+        binding.pry
         if user && user.authenticate(params[:password])
             session[:user_id] = user.id
             redirect '/lists'
@@ -22,9 +23,9 @@ class SessionsController < ApplicationController
     end
 
     post '/signup' do
-        @u = User.new(name: params[:name], email: params[:email], password: params[:password], username: params[:username])
-        if @u.save
-            session[:user_id] = @u.id
+        @user = User.new(name: params[:name], email: params[:email], password: params[:password], username: params[:username])
+        if @user.save
+            session[:user_id] = @user.id
             redirect "/lists"
         else
             erb :'sessions/signup'

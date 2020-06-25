@@ -2,7 +2,7 @@ class ListsController < ApplicationController
 
     get '/lists' do
         # authenticate
-        # binding.pry
+        binding.pry
         @lists = current_user.lists
         erb :'/lists/index'
     end
