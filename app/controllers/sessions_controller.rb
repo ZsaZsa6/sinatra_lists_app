@@ -9,7 +9,8 @@ class SessionsController < ApplicationController
     end
 
     post '/login' do
-        u = User.find_by(username: params[:username], email: params[:email])
+        u = User.find_by(username: params[:username])
+
         if u && u.authenticate(params[:password])
             session[:user_id] = u.id
             redirect '/lists'
@@ -25,7 +26,6 @@ class SessionsController < ApplicationController
             session[:user_id] = @u.id
             redirect "/lists"
         else
-
             erb :'sessions/signup'
         end
     end

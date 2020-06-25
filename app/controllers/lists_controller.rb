@@ -1,6 +1,7 @@
-class TodosController < ApplicationController
+class ListsController < ApplicationController
 
     get '/lists' do
+      binding.pry
         authenticate
         @lists = current_user.lists
         erb :'/lists/index'
