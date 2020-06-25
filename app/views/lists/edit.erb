@@ -1,12 +1,1 @@
-<form action="/lists/<%= @list.id %>" method="post">
-    <input type="hidden" name="_method" value="patch">
-    <input type="text" name="title" value="<%=@list.title %>">
-    <input type="text" name="category" value="<%=@list.category %>">
-    <input type="text" name="content" value="<%=@list.content %>">
-    <input type="submit" value="Update" >
-</form>
 
-<form action="/lists/<%= @list.id %>" method="post">
-    <input type="hidden" name="_method" value="delete">
-    <input type="submit" value="Delete List">
-</form>
