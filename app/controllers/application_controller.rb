@@ -10,7 +10,6 @@ class ApplicationController < Sinatra::Base
         erb :home
     end
 
-
     self.helpers do
 
         def current_user

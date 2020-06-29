@@ -6,7 +6,6 @@ class ListsController < ApplicationController
         erb :'/lists/index'
     end
 
-
     get '/lists/new' do
         authenticate
         erb :'/lists/new'
@@ -29,7 +28,6 @@ class ListsController < ApplicationController
         authorize(@list)
         erb :'/lists/edit'
     end
-
 
     patch '/lists/:id' do
         @list = List.find(params[:id])
