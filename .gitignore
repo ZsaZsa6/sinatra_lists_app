@@ -5,7 +5,7 @@
 /InstalledFiles
 /pkg/
 /tmp/
-/secrets.rb
+
 
 # Used by dotenv library to load environment variables.
 # .env
