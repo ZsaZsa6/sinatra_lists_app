@@ -25,6 +25,7 @@ class SessionsController < ApplicationController
             session[:user_id] = @user.id
             redirect "/lists"
         else
+          @err = "Invalid Credentials--Make sure you are entering a valid email address"
             erb :'sessions/signup'
         end
     end
