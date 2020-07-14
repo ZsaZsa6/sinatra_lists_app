@@ -1,12 +1,3 @@
-<% if @err %>
-<p><%= @err %></p>
-<% end %>
-<% if @u && @u.errors.any? %>
-    <% @u.errors.full_messages.each do |msg| %>
-        <p style="color: red;"><%= msg %></p>
-    <% end %>
-
-<% end %>
 
 <form action="/signup" method="post">
 
@@ -15,6 +6,12 @@
     <input type="text" placeholder="Username" name="username"><br/>
     <input type="password" placeholder="Password" name="password"><br/>
     <input type="submit" value="Sign Up">
+    
+    <% flash_types.select{ |kind| flash.has?(kind) }.each do |kind| %>
+        <div class="flash <%= kind %>">
+          <%= flash[kind] %>
+        </div>
+        <% end %>
 
 </form>
 

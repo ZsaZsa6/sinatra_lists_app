@@ -1,12 +1,16 @@
- <% if @err %>
-     <p><%= @err %></p>
- <% end %>
+
+
 
 <form action="/login" method="post">
 
     <input type="text" id="username" placeholder="username" name="username"><br/>
     <input type="password" id="password" placeholder="password" name="password"><br/>
     <input type="submit" value="Log In">
+    <% flash_types.select{ |kind| flash.has?(kind) }.each do |kind| %>
+        <div class="flash <%= kind %>">
+          <%= flash[kind] %>
+        </div>
+        <% end %>
 </form>
 
 <a href="/signup">Sign Up</a>

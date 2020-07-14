@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+   
 
     get '/signup' do
         erb :'sessions/signup'
@@ -14,7 +15,7 @@ class SessionsController < ApplicationController
             session[:user_id] = user.id
             redirect '/lists'
         else
-            @err = "Invalid Credentials"
+            flash[:error] = "Invalid Credentials"
             erb :'sessions/login'
         end
     end
@@ -25,7 +26,7 @@ class SessionsController < ApplicationController
             session[:user_id] = @user.id
             redirect '/lists'
         else
-            @err = "Invalid Credentials"
+            flash[:warning] = "Make sure you are using a valid email address"
            erb :'sessions/signup'
         end
     end
