@@ -23,10 +23,10 @@ class SessionsController < ApplicationController
         @user = User.new(name: params[:name], email: params[:email], password: params[:password], username: params[:username])
         if @user.save
             session[:user_id] = @user.id
-            redirect "/lists"
+            redirect '/lists'
         else
-          @err = "Invalid Credentials--Make sure you are entering a valid email address"
-            erb :'sessions/signup'
+            @err = "Invalid Credentials"
+           erb :'sessions/signup'
         end
     end
 

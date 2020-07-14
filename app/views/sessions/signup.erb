@@ -1,8 +1,7 @@
 <% if @err %>
-    <p><%= @err %></p>
+<p><%= @err %></p>
 <% end %>
 <% if @u && @u.errors.any? %>
-
     <% @u.errors.full_messages.each do |msg| %>
         <p style="color: red;"><%= msg %></p>
     <% end %>
