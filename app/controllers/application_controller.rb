@@ -1,7 +1,7 @@
 class ApplicationController < Sinatra::Base
     
     enable :sessions
-    use Rack::Flash
+    use Rack::Flash, :sweep => true
     set :session_secret, "my session secret"
     configure do
     set :views, 'app/views'
@@ -31,7 +31,7 @@ class ApplicationController < Sinatra::Base
             redirect '/lists' if list.user != current_user
         end
         def flash_types
-              [:warning, :error]
+              [:warning, :error, :validate]
         end
         
     end

@@ -19,8 +19,12 @@ class ListsController < ApplicationController
 
     post '/lists' do
         authenticate
-        List.create(category: params[:category], title: params[:title], content: params[:content], user: current_user)
+      @list = List.create(category: params[:category], title: params[:title], content: params[:content], user: current_user)
+        if @list.save
         redirect '/lists'
+        else flash[:validate] = "Make sure you have supplied a title and content for your list"
+        erb :'/lists/new'
+        end
     end
 
     get '/lists/:id/edit' do

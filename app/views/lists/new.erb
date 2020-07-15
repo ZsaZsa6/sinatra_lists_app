@@ -4,4 +4,10 @@
   <p><input type="text" name="content" placeholder="List Content"></p>
   <input type="submit" value="Create New List">
 
+  <% flash_types.select{ |kind| flash.has?(kind) }.each do |kind| %>
+    <div class="flash <%= kind %>">
+      <%= flash[kind] %>
+    </div>
+    <% end %>
+
 </form>
